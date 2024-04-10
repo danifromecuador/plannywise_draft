@@ -1,3 +1,5 @@
+// src/main/App.jsx
+
 import { store } from '../store/store.js'
 import './App.css'
 
