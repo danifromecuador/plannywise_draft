@@ -1,5 +1,34 @@
 /* src/alarm/Alarm.css */
 
 .alarm {
-  color: red;
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alarm-left {
+  padding: 0 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.alarm-left span:first-child,
+.alarm-center>span>span:nth-child(1),
+.alarm-right>span>span:nth-child(1) {
+  font-size: 1.5rem;
+}
+
+@media (width < 900px) {
+
+  .alarm-left,
+  .alarm-center,
+  .alarm-right {
+    display: flex;
+    flex-direction: column;
+  }
 }
