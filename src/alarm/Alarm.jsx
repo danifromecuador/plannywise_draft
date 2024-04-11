@@ -1,11 +1,15 @@
-// src/alarm/Alarm.jsx
-
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AlarmStore } from '../store/store.js'
 import './Alarm.css'
 
 export const Alarm = () => {
-  const { alarmState, alarmMessage, changeAlarmState, nextInterval } = AlarmStore()
+  const { alarmState, alarmMessage, changeAlarmState, nextInterval, playAlarm } = AlarmStore()
+  const [alarmStatus, setAlarmStatus] = useState("")
+
+  useEffect(() => {
+    const intervalId = setInterval(() => { setAlarmStatus(playAlarm()) }, 1000)
+    return () => clearInterval(intervalId)
+  }, [alarmState])
 
   return (
     <div className="alarm">
@@ -18,8 +22,10 @@ export const Alarm = () => {
         <span>every <span>15</span> minutes</span>
       </div>
       <div className={`alarm-right ${alarmState === "Alarm is OFF" ? "hide" : ""}`}>
-        <span>Next alarm will sound </span>
-        <span>at <span>{nextInterval()}</span></span>
+        {alarmStatus === "alarm is playing" ?
+          (<><span>Alarm is playing</span><span>right now</span></>) :
+          (<><span>Next alarm will sound </span><span>at <span>{nextInterval()}</span></span></>)
+        }
       </div>
     </div>
   )
