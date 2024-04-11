@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: gray;
 }
 
 .alarm-left {
@@ -21,6 +22,7 @@
 .alarm-center > span > span:nth-child(1),
 .alarm-right > span > span:nth-child(1) {
   font-size: 1.5rem;
+  color: white;
 }
 
 .alarm-center.hide,
