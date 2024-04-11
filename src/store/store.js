@@ -26,7 +26,7 @@ export const TodoStore = create((set) => ({
 export const TaskStore = create((set) => ({
   previousInterval: () => previousInterval(),
   workedHours: 23,
-  completedTasks: [{ interval: 123, text: "text one" }, { interval: 456, text: "text two" }],
+  completedTasks: [],
   addCompletedTask: (input) => addCompletedTask(set, input),
-  deleteTasks: () => set({ completedTasks: [] }),
+  deleteAllTasks: () => set({ completedTasks: [] }),
 }))

@@ -6,6 +6,7 @@ import './Tasks.css'
 
 export const Tasks = () => {
   const taskStore = TaskStore()
+  const { previousInterval } = TaskStore()
   const [input, setInput] = useState("")
 
   const handleEnterKey = (e) => {
@@ -25,9 +26,9 @@ export const Tasks = () => {
         }
       </ul>
       <div >
-        <button onClick={() => taskStore.deleteTasks()}>Delete All Tasks</button>
+        <button onClick={() => taskStore.deleteAllTasks()}>Delete All Tasks</button>
         <div>
-          <span>{taskStore.previousInterval()}</span>
+          <span>{previousInterval()}</span>
           <input
             type="text"
             placeholder='Type a completed task and press Enter'
