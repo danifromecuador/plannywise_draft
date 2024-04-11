@@ -18,18 +18,17 @@
 }
 
 .alarm-left span:first-child,
-.alarm-center>span>span:nth-child(1),
-.alarm-right>span>span:nth-child(1) {
+.alarm-center > span > span:nth-child(1),
+.alarm-right > span > span:nth-child(1) {
   font-size: 1.5rem;
 }
 
-.alarm-center.hide, 
+.alarm-center.hide,
 .alarm-right.hide {
   display: none;
 }
 
 @media (width < 900px) {
-
   .alarm-left,
   .alarm-center,
   .alarm-right {

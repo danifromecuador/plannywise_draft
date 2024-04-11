@@ -9,7 +9,7 @@ export const Alarm = () => {
   useEffect(() => {
     const intervalId = setInterval(() => { setAlarmStatus(playAlarm()) }, 1000)
     return () => clearInterval(intervalId)
-  }, [alarmState])
+  }, [alarmState, playAlarm])
 
   return (
     <div className="alarm">
