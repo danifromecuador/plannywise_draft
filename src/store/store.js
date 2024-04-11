@@ -20,3 +20,7 @@ export const TodoStore = create((set) => ({
   markAsUnDone: (done) => markAsUnDone(set, done),
   deleteAllCompleted: () => set({dones: []})
 }))
+
+export const TaskStore = create(()=>({
+  completedTasks: [{date:123,text:"text one"},{date:456,text:"text two"}]
+}))
