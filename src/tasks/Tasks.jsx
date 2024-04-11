@@ -1,17 +1,27 @@
 // src/tasks/Tasks.jsx
 
+import { useState } from 'react'
 import { TaskStore } from '../store/store'
 import './Tasks.css'
 
 export const Tasks = () => {
   const taskStore = TaskStore()
+  const [input, setInput] = useState("")
+
+  const handleEnterKey = (e) => {
+    if (e.key === "Enter") {
+      taskStore.addCompletedTask(input)
+      setInput("")
+    }
+  }
+
   return (
     <div className="tasks">
       <h1>Task Tracker</h1>
-      <span>Todays worked hours: 23</span>
+      <span>Todays worked hours {taskStore.workedHours}</span>
       <ul>
         {
-          taskStore.completedTasks.map((ct)=>(<li>{ct.date}{ct.text}</li>))
+          taskStore.completedTasks.map((ct) => (<li>{ct.date}{ct.text}</li>))
         }
       </ul>
       <div >
@@ -21,6 +31,9 @@ export const Tasks = () => {
           <input
             type="text"
             placeholder='Type a completed task and press Enter'
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => handleEnterKey(e)}
           />
         </div>
       </div>
