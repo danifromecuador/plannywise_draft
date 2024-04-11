@@ -21,13 +21,13 @@ export const Tasks = () => {
       <span>Worked hours {taskStore.workedHours}</span>
       <ul>
         {
-          taskStore.completedTasks.map((ct) => (<li key={ct.time}>{ct.time}{ct.text}</li>))
+          taskStore.completedTasks.map((ct) => (<li key={ct.interval}>{ct.interval}{ct.text}</li>))
         }
       </ul>
       <div >
         <button onClick={() => taskStore.deleteTasks()}>Delete All Tasks</button>
         <div>
-          <span>12:15 -12:30</span>
+          <span>{taskStore.previousInterval()}</span>
           <input
             type="text"
             placeholder='Type a completed task and press Enter'

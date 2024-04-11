@@ -16,9 +16,9 @@ export const getTime = () => ({
   M: new Date().getMonth() + 1,
   d: new Date().getDate(),
   h: new Date().getHours(),
-  // h: 23,
+  // h: 0,
   m: new Date().getMinutes(),
-  // m: 45,
+  // m: 14,
   s: new Date().getSeconds(),
   ms: new Date().getMilliseconds(),
 })
@@ -39,4 +39,22 @@ export const playAlarm = () => {
   const audio = new Audio(alarmSound)
   if (alarmState === "Alarm is ON" && m % 15 === 0 && s === 0) audio.play()
   if (alarmState === "Alarm is ON" && m % 15 === 0 && s < 8) return "alarm is playing"
+}
+
+export const previousInterval = () => {
+  let h = getTime().h
+  let m = getTime().m
+  let minH = h
+  let minM = (m - m % 15) - 15
+  let maxH = h
+  let maxM = m - m % 15
+  if (minM < 0) {
+    minM = 45
+    minH -= 1
+  }
+  if (minH < 0) minH = 23
+
+  return `
+    ${minH.toString().padStart(2, "0")}:${minM.toString().padStart(2, "0")} - ${maxH.toString().padStart(2, "0")}:${maxM.toString().padStart(2, "0")}
+  `
 }
