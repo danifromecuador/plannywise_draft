@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react'
 import { AlarmStore } from '../store/store.js'
 import './Alarm.css'
+import { previousInterval } from './alarm_logic.js'
 
 export const Alarm = () => {
-  const { alarmState, alarmMessage, changeAlarmState, nextInterval, playAlarm } = AlarmStore()
+  const { alarmState, alarmMessage, changeAlarmState, nextInterval, previousInterval, playAlarm } = AlarmStore()
   const [alarmStatus, setAlarmStatus] = useState("")
 
   useEffect(() => {
-    const intervalId = setInterval(() => { setAlarmStatus(playAlarm()) }, 1000)
+    const intervalId = setInterval(() => {
+      setAlarmStatus(playAlarm())
+      previousInterval()
+    }, 1000)
     return () => clearInterval(intervalId)
   }, [alarmState, playAlarm])
 

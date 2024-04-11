@@ -10,6 +10,7 @@ export const AlarmStore = create((set) => ({
   alarmState: "Alarm is ON",
   alarmMessage: "Click to turn off",
   changeAlarmState: () => changeAlarmState(set),
+  previousInterval: () => previousInterval(),
   nextInterval: () => nextInterval(),
   playAlarm: () => playAlarm(),
 }));

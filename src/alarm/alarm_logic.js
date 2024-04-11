@@ -16,9 +16,7 @@ export const getTime = () => ({
   M: new Date().getMonth() + 1,
   d: new Date().getDate(),
   h: new Date().getHours(),
-  // h: 16,
   m: new Date().getMinutes(),
-  // m: 15,
   s: new Date().getSeconds(),
   ms: new Date().getMilliseconds(),
 })
@@ -29,6 +27,7 @@ export const nextInterval = () => {
   let nextM = m - m % 15 + 15
   if (nextM === 60) { nextM = 0; h += 1 }
   if (h === 24) h = 0
+  console.log("hello");
   return `${h.toString().padStart(2, "0")}:${nextM.toString().padStart(2, "0")}`
 }
 
@@ -48,13 +47,7 @@ export const previousInterval = () => {
   let minM = (m - m % 15) - 15
   let maxH = h
   let maxM = m - m % 15
-  if (minM < 0) {
-    minM = 45
-    minH -= 1
-  }
+  if (minM < 0) { minM = 45; minH -= 1 }
   if (minH < 0) minH = 23
-
-  return `
-    ${minH.toString().padStart(2, "0")}:${minM.toString().padStart(2, "0")} - ${maxH.toString().padStart(2, "0")}:${maxM.toString().padStart(2, "0")}
-  `
+  return `${minH.toString().padStart(2, "0")}:${minM.toString().padStart(2, "0")} - ${maxH.toString().padStart(2, "0")}:${maxM.toString().padStart(2, "0")}`
 }
