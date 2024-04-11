@@ -20,7 +20,7 @@ export const Todo = () => {
         {todoStore.dones.map((d) => (<li key={d.index} className='todo-done' onClick={() => todoStore.markAsUnDone(d)}>{d.text}</li>))}
       </ul>
 
-      <button>
+      <button onClick={() => todoStore.deleteAllCompleted()}>
         Delete All Completed
       </button>
 

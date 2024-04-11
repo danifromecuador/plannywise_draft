@@ -18,4 +18,5 @@ export const TodoStore = create((set) => ({
   addTodo: (input) => addTodo(set, input),
   markAsDone: (todo) => markAsDone(set, todo),
   markAsUnDone: (done) => markAsUnDone(set, done),
+  deleteAllCompleted: () => set({dones: []})
 }))
