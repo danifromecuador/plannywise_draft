@@ -4,7 +4,7 @@ import { create } from 'zustand'
 import { changeAlarmState, nextInterval, previousInterval, playAlarm } from '../alarm/alarm_logic.js'
 import { addTodo, markAsDone, markAsUnDone } from '../todo/todo_logic.js'
 
-import { addCompletedTask } from '../tasks/tasks_logic.js'
+import { addCompletedTask, workedHours } from '../tasks/tasks_logic.js'
 
 export const AlarmStore = create((set) => ({
   alarmState: "Alarm is ON",
@@ -25,7 +25,7 @@ export const TodoStore = create((set) => ({
 
 export const TaskStore = create((set) => ({
   previousInterval: () => previousInterval(),
-  workedHours: 23,
+  workedHours: () => workedHours(),
   completedTasks: JSON.parse(localStorage.getItem("completedTasks")) || [],
   addCompletedTask: (input) => addCompletedTask(set, input),
   deleteAllTasks: () => set({ completedTasks: [] }),

@@ -13,3 +13,5 @@ export const addCompletedTask = (set, input) => {
   }
 }
 
+export const workedHours = () => TaskStore.getState().completedTasks.length / 4
+

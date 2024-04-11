@@ -28,7 +28,7 @@ export const Tasks = () => {
   return (
     <div className="tasks">
         <h1>Task Tracker</h1>
-        <span className='tasks-worked-hours'>Worked hours&nbsp;<span className='tasks-worked-hours-number'>{taskStore.workedHours}</span> </span>
+        <span className='tasks-worked-hours'>Worked hours&nbsp;<span className='tasks-worked-hours-number'>{taskStore.workedHours()}</span> </span>
       
       <ul className={taskStore.completedTasks.length === 0 ? "hide" : ""}>
         {
