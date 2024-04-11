@@ -1,12 +1,13 @@
 // src/tasks/Tasks.jsx
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { TaskStore } from '../store/store'
+import { AlarmStore } from '../store/store'
 import './Tasks.css'
 
 export const Tasks = () => {
   const taskStore = TaskStore()
-  const { previousInterval } = TaskStore()
+  const alarmStore = AlarmStore()
   const [input, setInput] = useState("")
 
   const handleEnterKey = (e) => {
@@ -15,6 +16,14 @@ export const Tasks = () => {
       setInput("")
     }
   }
+
+  useEffect(() => {
+    taskStore.previousInterval()
+  }, [alarmStore])
+
+  useEffect(() => {
+    localStorage.setItem("completedTasks", JSON.stringify(taskStore.completedTasks))
+  }, [taskStore.completedTasks])
 
   return (
     <div className="tasks">
@@ -28,7 +37,7 @@ export const Tasks = () => {
       <div >
         <button onClick={() => taskStore.deleteAllTasks()}>Delete All Tasks</button>
         <div>
-          <span>{previousInterval()}</span>
+          <span>{taskStore.previousInterval()}</span>
           <input
             type="text"
             placeholder='Type a completed task and press Enter'
