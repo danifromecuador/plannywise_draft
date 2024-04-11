@@ -9,6 +9,7 @@ export const Tasks = () => {
   const taskStore = TaskStore()
   const alarmStore = AlarmStore()
   const [input, setInput] = useState("")
+  const [prevInterval, setPrevInterval] = useState("")
 
   const handleEnterKey = (e) => {
     if (e.key === "Enter" && input && input[0] !== " ") {
@@ -18,7 +19,7 @@ export const Tasks = () => {
   }
 
   useEffect(() => {
-    taskStore.previousInterval()
+    setPrevInterval(taskStore.previousInterval())
   }, [alarmStore])
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export const Tasks = () => {
       <div className='delete-btn-and-interval-and-input'>
         <button onClick={() => taskStore.deleteAllTasks()}>Delete All Tasks</button>
         <div className='interval-and-input'>
-          <span className='interval-and-input-interval'>{taskStore.previousInterval()}</span>
+          <span className='interval-and-input-interval'>{prevInterval}</span>
           <input
             type="text"
             placeholder='Type a completed task and press Enter'
