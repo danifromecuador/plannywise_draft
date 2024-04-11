@@ -13,8 +13,8 @@ export const AlarmStore = create((set) => ({
 }));
 
 export const TodoStore = create((set) => ({
-  todos: [],
-  dones: [],
+  todos: JSON.parse(localStorage.getItem("todos")) || [],
+  dones: JSON.parse(localStorage.getItem("dones")) || [],
   addTodo: (input) => addTodo(set, input),
   markAsDone: (todo) => markAsDone(set, todo),
   markAsUnDone: (done) => markAsUnDone(set, done),

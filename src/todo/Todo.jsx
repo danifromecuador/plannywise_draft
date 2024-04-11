@@ -1,6 +1,6 @@
 // src/todo/Todo.jsx
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { TodoStore } from '../store/store.js'
 import './Todo.css'
 
@@ -13,17 +13,21 @@ export const Todo = () => {
       setInput("")
     }
   }
+
+  useEffect(()=>{
+    localStorage.setItem("todos", JSON.stringify(todoStore.todos))
+    localStorage.setItem("dones", JSON.stringify(todoStore.dones))
+  },[todoStore])
+
   return (
     <div className="todo">
       <ul>
         {todoStore.todos.map((t) => (<li key={t.index} className='todo-todo' onClick={() => todoStore.markAsDone(t)}>{t.text} </li>))}
         {todoStore.dones.map((d) => (<li key={d.index} className='todo-done' onClick={() => todoStore.markAsUnDone(d)}>{d.text}</li>))}
       </ul>
-
       <button onClick={() => todoStore.deleteAllCompleted()}>
         Delete All Completed
       </button>
-
       <input
         type="text"
         placeholder='Type a new goal and press Enter'
