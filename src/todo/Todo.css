@@ -13,10 +13,11 @@
   font-size: 1.5rem;
 }
 
-.todo ul, 
+.todo ul,
 .todo li {
   list-style: none;
 }
+
 .todo ul {
   border: 1px solid gray;
   border-radius: 5px;
@@ -31,8 +32,10 @@
   cursor: pointer;
 }
 
-
-.todo-todo, .todo-done,.todo input, .todo button  {
+.todo-todo,
+.todo-done,
+.todo input,
+.todo button {
   padding: 5px;
 }
 
@@ -41,7 +44,8 @@
   column-gap: 10px;
 }
 
-.todo button, .todo input {
+.todo button,
+.todo input {
   background-color: transparent;
   color: white;
   border: 1px solid gray;
@@ -54,7 +58,7 @@
 }
 
 .todo input {
-  width: 100%;  
+  width: 100%;
   outline: none;
 }
 
