@@ -9,7 +9,7 @@ export const Tasks = () => {
   const [input, setInput] = useState("")
 
   const handleEnterKey = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && input && input[0] !== " ") {
       taskStore.addCompletedTask(input)
       setInput("")
     }
@@ -21,7 +21,7 @@ export const Tasks = () => {
       <span>Todays worked hours {taskStore.workedHours}</span>
       <ul>
         {
-          taskStore.completedTasks.map((ct) => (<li>{ct.date}{ct.text}</li>))
+          taskStore.completedTasks.map((ct) => (<li key={ct.date}>{ct.date}{ct.text}</li>))
         }
       </ul>
       <div >
