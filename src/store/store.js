@@ -2,7 +2,7 @@
 
 import { create } from 'zustand'
 import { changeAlarmState, nextInterval, playAlarm } from '../alarm/alarm_logic.js'
-import { addTodo } from '../todo/todo_logic.js'
+import { addTodo, markAsDone, markAsUnDone } from '../todo/todo_logic.js'
 
 export const AlarmStore = create((set) => ({
   alarmState: "Alarm is ON",
@@ -13,9 +13,9 @@ export const AlarmStore = create((set) => ({
 }));
 
 export const TodoStore = create((set) => ({
-  todos: [{ index: 123, text: "first text" }, { index: 234, text: "second text" }],
-  dones: [{ index: 123, text: "done first text" }, { index: 234, text: "done second text" }],
-  // addTodo: (input) => set((state) => ({ todos: [...state.todos, { index: 222, text: input }] })),
-  addTodo: (input) => addTodo(set, input)
-
+  todos: [],
+  dones: [],
+  addTodo: (input) => addTodo(set, input),
+  markAsDone: (todo) => markAsDone(set, todo),
+  markAsUnDone: (done) => markAsUnDone(set, done),
 }))

@@ -16,12 +16,8 @@ export const Todo = () => {
   return (
     <div className="todo">
       <ul>
-        {
-          todoStore.todos.map((t) => (<li key={t.index}>{t.index}...{t.text}</li>))
-        }
-        {
-          todoStore.dones.map((d) => (<li key={d.index}>{d.index}...{d.text}</li>))
-        }
+        {todoStore.todos.map((t) => (<li key={t.index} className='todo-todo' onClick={() => todoStore.markAsDone(t)}>{t.text} </li>))}
+        {todoStore.dones.map((d) => (<li key={d.index} className='todo-done' onClick={() => todoStore.markAsUnDone(d)}>{d.index}...{d.text}</li>))}
       </ul>
 
       <button>

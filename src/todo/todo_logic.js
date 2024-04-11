@@ -11,3 +11,13 @@ export const addTodo = (set, input) => {
   console.log(getIndex());
   set((state) => ({ todos: [...state.todos, { index: getIndex(), text: input }] }))
 }
+
+export const markAsDone = (set, todo) => {
+  set((state) => ({ dones: [...state.dones, todo] }))
+  set((state)=>({ todos: state.todos.filter(t => t.index !== todo.index) }))
+}
+
+export const markAsUnDone = (set, done) => {
+  set((state) => ({ todos: [...state.todos, done] }))
+  set((state)=>({ dones: state.dones.filter(d => d.index !== done.index) }))
+}
