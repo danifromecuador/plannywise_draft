@@ -27,17 +27,18 @@ export const Tasks = () => {
 
   return (
     <div className="tasks">
-      <h1>Task Tracker</h1>
-      <span>Worked hours {taskStore.workedHours}</span>
-      <ul>
+        <h1>Task Tracker</h1>
+        <span className='tasks-worked-hours'>Worked hours&nbsp;<span className='tasks-worked-hours-number'>{taskStore.workedHours}</span> </span>
+      
+      <ul className={taskStore.completedTasks.length === 0 ? "hide" : ""}>
         {
-          taskStore.completedTasks.map((ct) => (<li key={ct.interval}>{ct.interval}{ct.text}</li>))
+          taskStore.completedTasks.map((ct) => (<li key={ct.interval}>{ct.interval}&nbsp;&nbsp;&nbsp;{ct.text}</li>))
         }
       </ul>
-      <div >
+      <div className='delete-btn-and-interval-and-input'>
         <button onClick={() => taskStore.deleteAllTasks()}>Delete All Tasks</button>
-        <div>
-          <span>{taskStore.previousInterval()}</span>
+        <div className='interval-and-input'>
+          <span className='interval-and-input-interval'>{taskStore.previousInterval()}</span>
           <input
             type="text"
             placeholder='Type a completed task and press Enter'
