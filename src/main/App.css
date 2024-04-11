@@ -14,7 +14,7 @@
   row-gap: 20px;
 }
 
-@media (width>1250px) {
+@media (width > 1250px) {
   .todo-and-tasks {
     flex-direction: row;
     column-gap: 20px;

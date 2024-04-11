@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { TaskStore } from '../store/store'
-import { AlarmStore } from '../store/store'
 import './Tasks.css'
 
 export const Tasks = () => {

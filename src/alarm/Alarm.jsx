@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AlarmStore } from '../store/store.js'
 import './Alarm.css'
-import { previousInterval } from './alarm_logic.js'
 
 export const Alarm = () => {
   const { alarmState, alarmMessage, changeAlarmState, nextInterval, previousInterval, playAlarm } = AlarmStore()
@@ -13,7 +12,7 @@ export const Alarm = () => {
       previousInterval()
     }, 1000)
     return () => clearInterval(intervalId)
-  }, [alarmState, playAlarm])
+  }, [alarmState, playAlarm, previousInterval])
 
   return (
     <div className="alarm">
