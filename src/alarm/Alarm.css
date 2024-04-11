@@ -23,6 +23,11 @@
   font-size: 1.5rem;
 }
 
+.alarm-center.hide, 
+.alarm-right.hide {
+  display: none;
+}
+
 @media (width < 900px) {
 
   .alarm-left,
