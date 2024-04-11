@@ -10,8 +10,10 @@ export const App = () => {
   return (
     <div className="app">
       <Alarm />
+      <div className="todo-and-tasks">
       <Todo />
       <Tasks />
+      </div>
     </div>
   )
 }
