@@ -11,7 +11,7 @@ export const changeAlarmState = (set) => {
   else set({ alarmState: "Alarm is ON", alarmMessage: "Click to turn off" })
 }
 
-const getTime = () => ({
+export const getTime = () => ({
   y: new Date().getFullYear(),
   M: new Date().getMonth() + 1,
   d: new Date().getDate(),
@@ -20,6 +20,7 @@ const getTime = () => ({
   m: new Date().getMinutes(),
   // m: 45,
   s: new Date().getSeconds(),
+  ms: new Date().getMilliseconds(),
 })
 
 export const nextInterval = () => {
