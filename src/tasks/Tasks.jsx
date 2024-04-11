@@ -18,14 +18,14 @@ export const Tasks = () => {
   return (
     <div className="tasks">
       <h1>Task Tracker</h1>
-      <span>Todays worked hours {taskStore.workedHours}</span>
+      <span>Worked hours {taskStore.workedHours}</span>
       <ul>
         {
-          taskStore.completedTasks.map((ct) => (<li key={ct.date}>{ct.date}{ct.text}</li>))
+          taskStore.completedTasks.map((ct) => (<li key={ct.time}>{ct.time}{ct.text}</li>))
         }
       </ul>
       <div >
-        <button>Reset todays tasks</button>
+        <button onClick={() => taskStore.deleteTasks()}>Delete All Tasks</button>
         <div>
           <span>12:15 -12:30</span>
           <input

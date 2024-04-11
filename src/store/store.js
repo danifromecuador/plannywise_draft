@@ -23,6 +23,7 @@ export const TodoStore = create((set) => ({
 
 export const TaskStore = create((set) => ({
   workedHours: 23,
-  completedTasks: [{ date: 123, text: "text one" }, { date: 456, text: "text two" }],
-  addCompletedTask: (input) => set((state) => ({ completedTasks: [...state.completedTasks, { date: 222, text: input }] }))
+  completedTasks: [{ time: 123, text: "text one" }, { time: 456, text: "text two" }],
+  addCompletedTask: (input) => set((state) => ({ completedTasks: [...state.completedTasks, { time: 222, text: input }] })),
+  deleteTasks: () => set({ completedTasks: [] }),
 }))
