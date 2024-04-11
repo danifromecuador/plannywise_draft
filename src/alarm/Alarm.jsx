@@ -5,7 +5,7 @@ import { AlarmStore } from '../store/store.js'
 import './Alarm.css'
 
 export const Alarm = () => {
-  const { alarmState, alarmMessage, changeAlarmState } = AlarmStore()
+  const { alarmState, alarmMessage, changeAlarmState, nextInterval } = AlarmStore()
 
   return (
     <div className="alarm">
@@ -19,7 +19,7 @@ export const Alarm = () => {
       </div>
       <div className={`alarm-right ${alarmState === "Alarm is OFF" ? "hide" : ""}`}>
         <span>Next alarm will sound </span>
-        <span>at <span>15:30</span></span>
+        <span>at <span>{nextInterval()}</span></span>
       </div>
     </div>
   )
