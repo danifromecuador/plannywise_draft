@@ -1,15 +1,15 @@
 // src/alarm/Alarm.jsx
 
-import {AlarmStore} from '../store/store.js'
+import { AlarmStore } from '../store/store.js'
 import './Alarm.css'
 
 export const Alarm = () => {
-  const alarmStore = AlarmStore.getState()
+  const { alarmState, alarmMessage, changeAlarmState } = AlarmStore()
   return (
     <div className="alarm">
-      <div className="alarm-left">
-        <span>Alarm is ON </span>
-        <span>Click to turn off</span>
+      <div className="alarm-left" onClick={changeAlarmState}>
+        <span>{alarmState} </span>
+        <span>{alarmMessage}</span>
       </div>
       <div className="alarm-center">
         <span>Alarm will sound </span>
