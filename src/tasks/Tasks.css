@@ -21,6 +21,24 @@
   font-size: 1.5rem;
 }
 
+.tasks-collapse-up,
+.tasks-collapse-down {
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-position-x: right;
+}
+
+.tasks-collapse-up {
+  background-image: url('../main/assets/arrow_up.png');
+}
+
+.tasks-collapse-down {
+  background-image: url('../main/assets/arrow_down.png');
+}
+
 .tasks ul {
   border: 1px solid gray;
   border-radius: 5px;
