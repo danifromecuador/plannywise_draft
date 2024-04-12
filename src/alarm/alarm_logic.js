@@ -3,8 +3,6 @@
 import { AlarmStore } from "../store/store.js";
 import alarmSound from './assets/alarm.wav'
 
-// following functions will be used in //src/store/store.js
-
 export const changeAlarmState = (set) => {
   const alarmState = AlarmStore.getState().alarmState
   if (alarmState === "Alarm is ON") set({ alarmState: "Alarm is OFF", alarmMessage: "Click to turn on" })
@@ -16,12 +14,35 @@ export const getTime = () => ({
   M: new Date().getMonth() + 1,
   d: new Date().getDate(),
   h: new Date().getHours(),
-  // h: 23,
   m: new Date().getMinutes(),
-  // m: 45,
   s: new Date().getSeconds(),
   ms: new Date().getMilliseconds(),
 })
+
+export const getIndex = () => {
+  const time = getTime()
+  return Number(
+    time.y.toString() +
+    time.M.toString().padStart(2, "0") +
+    time.d.toString().padStart(2, "0") +
+    time.h.toString().padStart(2, "0") +
+    time.m.toString().padStart(2, "0") +
+    time.s.toString().padStart(2, "0") +
+    time.ms.toString().padStart(3, "0")
+  )
+}
+
+export const previousInterval = () => {
+  let h = getTime().h
+  let m = getTime().m
+  let minH = h
+  let minM = (m - m % 15) - 15
+  let maxH = h
+  let maxM = m - m % 15
+  if (minM < 0) { minM = 45; minH -= 1 }
+  if (minH < 0) minH = 23
+  return `${minH.toString().padStart(2, "0")}:${minM.toString().padStart(2, "0")} - ${maxH.toString().padStart(2, "0")}:${maxM.toString().padStart(2, "0")}`
+}
 
 export const nextInterval = () => {
   let h = getTime().h
@@ -40,3 +61,4 @@ export const playAlarm = () => {
   if (alarmState === "Alarm is ON" && m % 15 === 0 && s === 0) audio.play()
   if (alarmState === "Alarm is ON" && m % 15 === 0 && s < 8) return "alarm is playing"
 }
+
