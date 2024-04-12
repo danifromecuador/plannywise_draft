@@ -13,24 +13,35 @@
 
 .todo .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+.todo .header .todo-completed,
+.todo .header h1,
+.todo .header .todo-collapse-up,
+.todo .header .todo-collapse-down {
+  width: 33.333%;
 }
 
 .todo-completed {
   color: gray;
 }
 
-.todo-completed-number, .todo h1 {
+.todo-completed-number,
+.todo h1 {
   color: white;
   font-size: 1.5rem;
+  text-align: center;
 }
 
-.todo-collapse-up, .todo-collapse-down {
+.todo-collapse-up,
+.todo-collapse-down {
   width: 25px;
   height: 25px;
   background-size: contain;
+  background-repeat: no-repeat;
   cursor: pointer;
+  background-position-x: right;
 }
 
 .todo-collapse-up {
