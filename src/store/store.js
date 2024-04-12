@@ -25,9 +25,8 @@ export const TodoStore = create((set) => ({
 }))
 
 export const TaskStore = create((set) => ({
-  previousInterval: () => previousInterval(),
-  workedHours: () => workedHours(),
   completedTasks: JSON.parse(localStorage.getItem("completedTasks")) || [],
   addCompletedTask: (input) => addCompletedTask(set, input),
+  workedHours: () => workedHours(),
   deleteAllTasks: () => set({ completedTasks: [] }),
 }))
