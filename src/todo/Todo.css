@@ -28,10 +28,8 @@
 
 .todo-collapse-up,
 .todo-collapse-down {
-
   display: flex;
   justify-content: flex-end;
-
 }
 
 .arrow-up,
