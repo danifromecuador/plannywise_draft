@@ -46,8 +46,8 @@ export const Todo = () => {
           <span className={isNaN(calculateCompletedPercentage()) ? "hide" : "todo-completed-number"}>{calculateCompletedPercentage()}%</span>
         </span>
         <h1>Daily Goals</h1>
-        <div className={`todo-collapse-up ${hide1}`} onClick={collapse}></div>
-        <div className={`todo-collapse-down ${hide2}`} onClick={collapse}></div>
+        <div className={`todo-collapse-up ${hide1}`} onClick={collapse}><div className="arrow-up"></div></div>
+        <div className={`todo-collapse-down ${hide2}`} onClick={collapse}><div className="arrow-down"></div></div>
       </div>
       <ul className={` ${collapseClass} ${todoStore.todos.length === 0 && todoStore.dones.length === 0 ? "hide" : ""}`}>
         {todoStore.todos.map((t) => (<li key={t.index} className='todo-todo' onClick={() => todoStore.markAsDone(t)}>{t.text} </li>))}
