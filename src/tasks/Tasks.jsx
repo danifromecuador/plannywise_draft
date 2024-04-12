@@ -49,7 +49,7 @@ export const Tasks = () => {
     <div className="tasks">
       <div className="header">
         <span className='tasks-worked-hours'>
-          Worked hours&nbsp;
+          Worked hours:&nbsp;
           <span className='tasks-worked-hours-number'>{taskStore.workedHours()}</span>
         </span>
         <h1>Task Tracker</h1>

@@ -16,6 +16,19 @@
   list-style: none;
 }
 
+.tasks .header {
+  display: flex;
+  align-items: center;
+}
+
+.tasks .tasks-worked-hours,
+.tasks h1,
+.tasks .tasks-collapse-up,
+.tasks .tasks-collapse-down {
+  width: 33.333%;
+}
+
+
 .tasks h1 {
   text-align: center;
   font-size: 1.5rem;
@@ -47,9 +60,6 @@
 }
 
 .tasks-worked-hours {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
   color: gray;
 }
 
