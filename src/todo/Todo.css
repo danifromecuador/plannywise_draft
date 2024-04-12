@@ -1,5 +1,8 @@
+/* src/todo/Todo.css */
+
 .todo {
   width: 100%;
+  height: fit-content;
   border: 1px solid white;
   border-radius: 20px;
   padding: 10px;
@@ -8,9 +11,55 @@
   row-gap: 10px;
 }
 
+.todo .header {
+  display: flex;
+  align-items: center;
+}
+
+.todo-completed {
+  color: gray;
+}
+
+.todo-completed-number,
 .todo h1 {
-  text-align: center;
+  color: white;
   font-size: 1.5rem;
+  text-align: center;
+}
+
+.todo-collapse-up,
+.todo-collapse-down {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.arrow-up,
+.arrow-down {
+  width: 25px;
+  height: 25px;
+  padding: 5px;
+  margin: 1px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: white;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.arrow-up {
+  background-image: url('../main/assets/arrow_up.png');
+}
+
+.arrow-down {
+  background-image: url('../main/assets/arrow_down.png');
+}
+
+.todo .header .todo-completed,
+.todo .header h1,
+.todo .header .todo-collapse-up,
+.todo .header .todo-collapse-down {
+  width: 33.333%;
 }
 
 .todo ul,

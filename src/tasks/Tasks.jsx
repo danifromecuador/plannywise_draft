@@ -10,11 +10,27 @@ export const Tasks = () => {
   const alarmStore = AlarmStore()
   const [input, setInput] = useState("")
   const [previousInterval, setPreviousInterval] = useState("")
+  const [collapseClass, setCollapseClass] = useState("")
+  const [hide1, setHide1] = useState("")
+  const [hide2, setHide2] = useState("hide")
 
   const handleEnterKey = (e) => {
     if (e.key === "Enter" && input && input[0] !== " ") {
       taskStore.addCompletedTask(input)
       setInput("")
+    }
+  }
+
+  const collapse = () => {
+    if (collapseClass === "") {
+      setCollapseClass("hide")
+      setHide1("hide")
+      setHide2("")
+    }
+    else {
+      setCollapseClass("")
+      setHide1("")
+      setHide2("hide")
     }
   }
 
@@ -31,12 +47,19 @@ export const Tasks = () => {
 
   return (
     <div className="tasks">
-      <h1>Task Tracker</h1>
-      <span className='tasks-worked-hours'>Worked hours&nbsp;<span className='tasks-worked-hours-number'>{taskStore.workedHours()}</span> </span>
-      <ul className={taskStore.completedTasks.length === 0 ? "hide" : ""}>
+      <div className="header">
+        <span className='tasks-worked-hours'>
+          Worked hours:&nbsp;
+          <span className='tasks-worked-hours-number'>{taskStore.workedHours()}</span>
+        </span>
+        <h1>Task Tracker</h1>
+        <div className={`tasks-collapse-up ${hide1}`} onClick={collapse}><div className="arrow-up"></div></div>
+        <div className={`tasks-collapse-down ${hide2}`} onClick={collapse}><div className="arrow-down"></div></div>
+      </div>
+      <ul className={`${collapseClass}${taskStore.completedTasks.length === 0 ? "hide" : ""}`}>
         {taskStore.completedTasks.map((ct) => (<li key={ct.interval}>{ct.interval}&nbsp;&nbsp;&nbsp;{ct.text}</li>))}
       </ul>
-      <div className='delete-btn-and-interval-and-input'>
+      <div className={`delete-btn-and-interval-and-input ${collapseClass}`}>
         <button onClick={() => taskStore.deleteAllTasks()}>Delete All Tasks</button>
         <div className='interval-and-input'>
           <span className='interval-and-input-interval'>{previousInterval}</span>
