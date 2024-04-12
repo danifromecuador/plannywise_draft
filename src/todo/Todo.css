@@ -34,11 +34,6 @@
 
 }
 
-.arrow-up {
-  background-image: url('../main/assets/arrow_up.png');
-
-}
-
 .arrow-up,
 .arrow-down {
   width: 25px;
@@ -47,11 +42,14 @@
   margin: 1px;
   border: 1px solid white;
   border-radius: 50%;
-  background-image: url('../main/assets/arrow_up.png');
   background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
+}
+
+.arrow-up {
+  background-image: url('../main/assets/arrow_up.png');
 }
 
 .arrow-down {

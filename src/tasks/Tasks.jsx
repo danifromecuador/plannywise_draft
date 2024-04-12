@@ -53,8 +53,8 @@ export const Tasks = () => {
           <span className='tasks-worked-hours-number'>{taskStore.workedHours()}</span>
         </span>
         <h1>Task Tracker</h1>
-        <div className={`tasks-collapse-up ${hide1}`} onClick={collapse}></div>
-        <div className={`tasks-collapse-down ${hide2}`} onClick={collapse}></div>
+        <div className={`tasks-collapse-up ${hide1}`} onClick={collapse}><div className="arrow-up"></div></div>
+        <div className={`tasks-collapse-down ${hide2}`} onClick={collapse}><div className="arrow-down"></div></div>
       </div>
       <ul className={`${collapseClass}${taskStore.completedTasks.length === 0 ? "hide" : ""}`}>
         {taskStore.completedTasks.map((ct) => (<li key={ct.interval}>{ct.interval}&nbsp;&nbsp;&nbsp;{ct.text}</li>))}
