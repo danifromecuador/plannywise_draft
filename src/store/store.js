@@ -1,19 +1,19 @@
 // src/store/store.js
 
 import { create } from 'zustand'
+import { devtools } from 'zustand/middleware'
 import { changeAlarmState, nextInterval, previousInterval, playAlarm } from '../alarm/alarm_logic.js'
 import { addTodo, markAsDone, markAsUnDone } from '../todo/todo_logic.js'
-
 import { addCompletedTask, workedHours } from '../tasks/tasks_logic.js'
 
-export const AlarmStore = create((set) => ({
+export const AlarmStore = create(devtools((set) => ({
   alarmState: "Alarm is ON",
   alarmMessage: "Click to turn off",
   changeAlarmState: () => changeAlarmState(set),
   previousInterval: () => previousInterval(),
   nextInterval: () => nextInterval(),
   playAlarm: () => playAlarm(),
-}));
+})));
 
 export const TodoStore = create((set) => ({
   todos: JSON.parse(localStorage.getItem("todos")) || [],
