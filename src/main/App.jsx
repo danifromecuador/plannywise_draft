@@ -12,7 +12,7 @@ export const App = () => {
     <div className="app">
       <Alarm />
       <div className="todo-and-tasks">
-      <Todo dailyTodoStore={dailyTodoStore()} dailyTodos={"dailyTodos"} dailyDones={"dailyDones"}/>
+      <Todo store={dailyTodoStore()} todos={"dailyTodos"} dones={"dailyDones"}/>
       <Tasks />
       </div>
     </div>

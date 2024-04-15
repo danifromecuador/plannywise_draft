@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react'
 import './Todo.css'
 
-export const Todo = ({ dailyTodoStore, dailyTodos, dailyDones }) => {
-  const todoStore = dailyTodoStore
+export const Todo = ({ store, todos, dones}) => {
   const [input, setInput] = useState("")
   const [collapseClass, setCollapseClass] = useState("")
   const [hide1, setHide1] = useState("")
@@ -12,17 +11,17 @@ export const Todo = ({ dailyTodoStore, dailyTodos, dailyDones }) => {
 
   const handleEnterKey = (e) => {
     if (e.key === "Enter" && input && input[0] !== " ") {
-      todoStore.addTodo(input)
+      store.addTodo(input)
       setInput("")
     }
   }
 
   useEffect(() => {
-    localStorage.setItem(`${dailyTodos}`, JSON.stringify(todoStore.todos))
-    localStorage.setItem(`${dailyDones}`, JSON.stringify(todoStore.dones))
-  }, [todoStore])
+    localStorage.setItem(`${todos}`, JSON.stringify(store.todos))
+    localStorage.setItem(`${dones}`, JSON.stringify(store.dones))
+  }, [store])
 
-  const calculateCompletedPercentage = () => Math.floor((todoStore.dones.length / (todoStore.todos.length + todoStore.dones.length)) * 100)
+  const calculateCompletedPercentage = () => Math.floor((store.dones.length / (store.todos.length + store.dones.length)) * 100)
 
   const collapse = () => {
     if (collapseClass === "") {
@@ -48,12 +47,12 @@ export const Todo = ({ dailyTodoStore, dailyTodos, dailyDones }) => {
         <div className={`todo-collapse-up ${hide1}`} onClick={collapse}><div className="arrow-up"></div></div>
         <div className={`todo-collapse-down ${hide2}`} onClick={collapse}><div className="arrow-down"></div></div>
       </div>
-      <ul className={` ${collapseClass} ${todoStore.todos.length === 0 && todoStore.dones.length === 0 ? "hide" : ""}`}>
-        {todoStore.todos.map((t) => (<li key={t.index} className='todo-todo' onClick={() => todoStore.markAsDone(t)}>{t.text} </li>))}
-        {todoStore.dones.map((d) => (<li key={d.index} className='todo-done' onClick={() => todoStore.markAsUnDone(d)}>{d.text}</li>))}
+      <ul className={` ${collapseClass} ${store.todos.length === 0 && store.dones.length === 0 ? "hide" : ""}`}>
+        {store.todos.map((t) => (<li key={t.index} className='todo-todo' onClick={() => store.markAsDone(t)}>{t.text} </li>))}
+        {store.dones.map((d) => (<li key={d.index} className='todo-done' onClick={() => store.markAsUnDone(d)}>{d.text}</li>))}
       </ul>
       <div className={collapseClass === "" ? "button-and-input" : "hide"}>
-        <button onClick={() => todoStore.deleteAllCompleted()}>
+        <button onClick={() => store.deleteAllCompleted()}>
           Delete All Completed
         </button>
         <input
