@@ -16,8 +16,8 @@ export const AlarmStore = create(devtools((set) => ({
 })));
 
 export const dailyTodoStore = create((set) => ({
-  todos: JSON.parse(localStorage.getItem("todos")) || [],
-  dones: JSON.parse(localStorage.getItem("dones")) || [],
+  todos: JSON.parse(localStorage.getItem("dailyTodos")) || [],
+  dones: JSON.parse(localStorage.getItem("dailyDones")) || [],
   addTodo: (input) => addTodo(set, input),
   markAsDone: (todo) => markAsDone(set, todo),
   markAsUnDone: (done) => markAsUnDone(set, done),

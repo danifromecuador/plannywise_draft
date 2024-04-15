@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import './Todo.css'
 
-export const Todo = ({dailyTodoStore}) => {
+export const Todo = ({ dailyTodoStore, dailyTodos, dailyDones }) => {
   const todoStore = dailyTodoStore
   const [input, setInput] = useState("")
   const [collapseClass, setCollapseClass] = useState("")
@@ -18,8 +18,8 @@ export const Todo = ({dailyTodoStore}) => {
   }
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todoStore.todos))
-    localStorage.setItem("dones", JSON.stringify(todoStore.dones))
+    localStorage.setItem(`${dailyTodos}`, JSON.stringify(todoStore.todos))
+    localStorage.setItem(`${dailyDones}`, JSON.stringify(todoStore.dones))
   }, [todoStore])
 
   const calculateCompletedPercentage = () => Math.floor((todoStore.dones.length / (todoStore.todos.length + todoStore.dones.length)) * 100)
