@@ -13,7 +13,7 @@ export const App = () => {
   return (
     <div className="app">
       <Alarm />
-      <div className="todo-and-tasks">
+      <div className="todos-tasks">
         <div className="todos">
           <Todo store={dailyTodoStore()} title={"Daily Goals"} todos={"dailyTodos"} dones={"dailyDones"} />
           <Todo store={weeklyTodoStore()} title={"Weekly Goals"} todos={"weeklyTodos"} dones={"weeklyDones"} />

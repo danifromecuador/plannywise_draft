@@ -126,3 +126,17 @@
 .hide {
   display: none;
 }
+
+@media (width < 576px) {
+  .tasks .interval-and-input-interval {
+    min-width: 20px;
+  }
+
+  .tasks .interval-and-input {
+    flex-direction: column;
+  }
+
+  .tasks .interval-and-input input {
+    text-align: center;
+  }
+}
