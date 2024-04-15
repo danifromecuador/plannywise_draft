@@ -24,6 +24,15 @@ export const dailyTodoStore = create((set) => ({
   deleteAllCompleted: () => set({ dones: [] })
 }))
 
+export const weeklyTodoStore = create((set) => ({
+  todos: JSON.parse(localStorage.getItem("weeklyTodos")) || [],
+  dones: JSON.parse(localStorage.getItem("weeklyDones")) || [],
+  addTodo: (input) => addTodo(set, input),
+  markAsDone: (todo) => markAsDone(set, todo),
+  markAsUnDone: (done) => markAsUnDone(set, done),
+  deleteAllCompleted: () => set({ dones: [] })
+}))
+
 export const TaskStore = create((set) => ({
   completedTasks: JSON.parse(localStorage.getItem("completedTasks")) || [],
   addCompletedTask: (input) => addCompletedTask(set, input),

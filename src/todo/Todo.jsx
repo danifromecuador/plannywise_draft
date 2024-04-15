@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import './Todo.css'
 
-export const Todo = ({ store, todos, dones}) => {
+export const Todo = ({ store, title, todos, dones}) => {
   const [input, setInput] = useState("")
   const [collapseClass, setCollapseClass] = useState("")
   const [hide1, setHide1] = useState("")
@@ -43,7 +43,7 @@ export const Todo = ({ store, todos, dones}) => {
           <span className={isNaN(calculateCompletedPercentage()) ? "hide" : ""}>Completed: </span>
           <span className={isNaN(calculateCompletedPercentage()) ? "hide" : "todo-completed-number"}>{calculateCompletedPercentage()}%</span>
         </span>
-        <h1>Daily Goals</h1>
+        <h1>{title}</h1>
         <div className={`todo-collapse-up ${hide1}`} onClick={collapse}><div className="arrow-up"></div></div>
         <div className={`todo-collapse-down ${hide2}`} onClick={collapse}><div className="arrow-down"></div></div>
       </div>
