@@ -56,7 +56,7 @@ export const Tasks = () => {
         <div className={`tasks-collapse-up ${hide1}`} onClick={collapse}><div className="arrow-up"></div></div>
         <div className={`tasks-collapse-down ${hide2}`} onClick={collapse}><div className="arrow-down"></div></div>
       </div>
-      <ul className={`${collapseClass}${taskStore.completedTasks.length === 0 ? "hide" : ""}`}>
+      <ul className={`${collapseClass} ${taskStore.completedTasks.length === 0 ? "hide" : ""}`}>
         {taskStore.completedTasks.map((ct) => (<li key={ct.interval}>{ct.interval}&nbsp;&nbsp;&nbsp;{ct.text}</li>))}
       </ul>
       <div className={`delete-btn-and-interval-and-input ${collapseClass}`}>
