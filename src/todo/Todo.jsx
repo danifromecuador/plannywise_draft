@@ -1,11 +1,10 @@
 // src/todo/Todo.jsx
 
 import { useState, useEffect } from 'react'
-import { TodoStore } from '../store/store.js'
 import './Todo.css'
 
-export const Todo = () => {
-  const todoStore = TodoStore()
+export const Todo = ({dailyTodoStore}) => {
+  const todoStore = dailyTodoStore
   const [input, setInput] = useState("")
   const [collapseClass, setCollapseClass] = useState("")
   const [hide1, setHide1] = useState("")

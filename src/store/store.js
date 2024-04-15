@@ -15,7 +15,7 @@ export const AlarmStore = create(devtools((set) => ({
   playAlarm: () => playAlarm(),
 })));
 
-export const TodoStore = create((set) => ({
+export const dailyTodoStore = create((set) => ({
   todos: JSON.parse(localStorage.getItem("todos")) || [],
   dones: JSON.parse(localStorage.getItem("dones")) || [],
   addTodo: (input) => addTodo(set, input),
