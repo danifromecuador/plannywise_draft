@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AlarmStore } from '../store/store.js'
+import { Settings } from '../settings/Settings.jsx'
 import './Alarm.css'
 
 export const Alarm = () => {
@@ -16,10 +17,14 @@ export const Alarm = () => {
 
   return (
     <div className="alarm">
-      <div className="alarm-left" onClick={changeAlarmState}>
-        <span>{alarmState} </span>
-        <span>{alarmMessage}</span>
+      <div className="settings-alarm-left">
+        <Settings />
+        <div className="alarm-left"onClick={changeAlarmState}>
+          <span>{alarmState} </span>
+          <span>{alarmMessage}</span>
+        </div>
       </div>
+
       <div className={`alarm-center ${alarmState === "Alarm is OFF" ? "hide" : ""}`}>
         <span>Alarm will sound </span>
         <span>every <span>15</span> minutes</span>
