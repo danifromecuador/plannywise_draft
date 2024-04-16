@@ -1,6 +1,7 @@
 // src/todo/Todo.jsx
 
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import './Todo.css'
 
 export const Todo = ({ store, title, todos, dones}) => {
@@ -19,7 +20,7 @@ export const Todo = ({ store, title, todos, dones}) => {
   useEffect(() => {
     localStorage.setItem(`${todos}`, JSON.stringify(store.todos))
     localStorage.setItem(`${dones}`, JSON.stringify(store.dones))
-  }, [store])
+  }, [store, todos, dones])
 
   const calculateCompletedPercentage = () => Math.floor((store.dones.length / (store.todos.length + store.dones.length)) * 100)
 
@@ -66,3 +67,21 @@ export const Todo = ({ store, title, todos, dones}) => {
     </div >
   )
 }
+
+Todo.propTypes = {
+  store: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      index: PropTypes.number.isRequired,
+      text: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  dones: PropTypes.arrayOf(
+    PropTypes.shape({
+      index: PropTypes.number.isRequired,
+      text: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
