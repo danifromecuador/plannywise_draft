@@ -3,20 +3,30 @@
 .app {
   width: 95vw;
   height: 95vh;
+}
+
+.app,
+.todos-tasks,
+.todos {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
 }
 
-.todo-and-tasks {
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
-
-@media (width > 1250px) {
-  .todo-and-tasks {
+@media (width > 1200px) {
+  .todos-tasks {
+    width: 100%;
     flex-direction: row;
     column-gap: 20px;
+  }
+
+  .todos {
+    width: 100%;
+  }
+}
+
+@media (width < 576px) {
+  * {
+    font-size: 0.8rem !important;
   }
 }
