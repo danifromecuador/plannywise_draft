@@ -11,6 +11,12 @@
   color: gray;
 }
 
+.settings-alarm-left {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
 .alarm-left {
   padding: 0 10px;
   border: 1px solid gray;

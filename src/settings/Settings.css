@@ -1,0 +1,66 @@
+.settings .icon {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: white;
+  animation: pulse-rotate 3s infinite linear;
+}
+
+.settings .modal {
+  position: absolute;
+  width: auto;
+
+  /* height: 200px; */
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  background-color: black;
+  color: white;
+}
+
+.settings .modal .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.settings .modal .button-container button {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.settings .modal ul li {
+  padding: 10px 0;
+}
+
+.modal.hide {
+  display: none;
+}
+
+@keyframes pulse-rotate {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+  }
+
+  50% {
+    transform: scale(1.5) rotateZ(45deg);
+  }
+
+  100% {
+    transform: scale(1) rotateZ(0deg);
+  }
+}
