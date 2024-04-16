@@ -1,3 +1,7 @@
+.setting {
+  position: relative;
+}
+
 .settings .icon {
   width: 35px;
   height: 35px;
@@ -11,20 +15,45 @@
   animation: pulse-rotate 3s infinite linear;
 }
 
+.settings .modal {
+  width: 300px;
+  height: 300px;
+  border: 1px solid red;
+}
+
+.settings .icon.hide,
+.settings .modal.hide {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @keyframes pulse-rotate {
   0% {
     transform: scale(1) rotateZ(0deg);
   }
+
   50% {
     transform: scale(1.5) rotateZ(45deg);
   }
+
   100% {
     transform: scale(1) rotateZ(0deg);
   }
-}
-
-.modal {
-  width: 300px;
-  height: 300px;
-  border: 1px solid red;
 }
