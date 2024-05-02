@@ -22,12 +22,8 @@ export const Stats_detail = ({ h2, store }) => {
     <div className="Stats_detail">
       <div className="header">
         <span>This {h2}: <span className="counter">{store.current}</span></span>        
-        <button className={spreadBtn} onClick={handleSpreadBtn}>
-          Show
-        </button>
-        <button className={shrinkBtn} onClick={handleShrinkBtn}>
-          Hide
-        </button>
+        <div className={`${spreadBtn} spreadBtn`}onClick={handleSpreadBtn}></div>
+        <div className={`${shrinkBtn} shrinkBtn`} onClick={handleShrinkBtn}></div>
       </div>
       <ul className={previous}>
         {Object.entries(store.previous).map(([key, value]) => (
