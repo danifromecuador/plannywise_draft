@@ -11,9 +11,13 @@
   color: gray;
 }
 
+.Stats h2 {
+  color: white;
+  padding: 10px;
+}
 .stats_detail {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: red;
+  column-gap: 10px;
 }

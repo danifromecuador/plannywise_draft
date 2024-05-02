@@ -1,0 +1,18 @@
+.Stats_detail {
+  width: 100%;
+  height: fit-content;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.Stats_detail .header {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.Stats_detail .header .counter {
+  font-size: 1.5rem;
+  color: white;
+}
