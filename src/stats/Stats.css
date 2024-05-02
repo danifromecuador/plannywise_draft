@@ -1,0 +1,19 @@
+.Stats {
+  color: aqua;
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: gray;
+}
+
+.stats_detail {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: red;
+}
