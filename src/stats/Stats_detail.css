@@ -9,6 +9,7 @@
 .Stats_detail .header {
   display: flex;
   justify-content: space-between;
+
   /* align-items: center; */
 }
 
@@ -17,7 +18,8 @@
   color: white;
 }
 
-.Stats_detail .spreadBtn, .Stats_detail .shrinkBtn {
+.Stats_detail .spreadBtn,
+.Stats_detail .shrinkBtn {
   width: 20px;
   height: 20px;
   background-color: gray;

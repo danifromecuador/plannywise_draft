@@ -15,6 +15,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .Stats .counter {
   font-size: 1.5rem;
   color: white;
@@ -23,6 +24,7 @@
 .Stats h2 {
   color: white;
 }
+
 .stats_detail {
   width: 100%;
   display: flex;

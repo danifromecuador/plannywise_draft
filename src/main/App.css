@@ -6,7 +6,8 @@
 
 .app,
 .left-right,
-.left, .right {
+.left,
+.right {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -19,10 +20,10 @@
     column-gap: 20px;
   }
 
-  .left, .right {
+  .left,
+  .right {
     width: 100%;
   }
-  
 }
 
 @media (width < 576px) {

@@ -1,6 +1,8 @@
 // src/
 import { useState } from "react";
+import PropTypes from "prop-types";
 import "./Stats_detail.css";
+
 export const Stats_detail = ({ h2, store }) => {
   const [spreadBtn, setSpreadBtn] = useState("");
   const [shrinkBtn, setShrinkBtn] = useState("hide");
@@ -21,9 +23,17 @@ export const Stats_detail = ({ h2, store }) => {
   return (
     <div className="Stats_detail">
       <div className="header">
-        <span>This {h2}: <span className="counter">{store.current}</span></span>        
-        <div className={`${spreadBtn} spreadBtn`}onClick={handleSpreadBtn}></div>
-        <div className={`${shrinkBtn} shrinkBtn`} onClick={handleShrinkBtn}></div>
+        <span>
+          This {h2}: <span className="counter">{store.current}</span>
+        </span>
+        <div
+          className={`${spreadBtn} spreadBtn`}
+          onClick={handleSpreadBtn}
+        ></div>
+        <div
+          className={`${shrinkBtn} shrinkBtn`}
+          onClick={handleShrinkBtn}
+        ></div>
       </div>
       <ul className={previous}>
         {Object.entries(store.previous).map(([key, value]) => (
@@ -34,4 +44,9 @@ export const Stats_detail = ({ h2, store }) => {
       </ul>
     </div>
   );
+};
+
+Stats_detail.propTypes = {
+  h2: PropTypes.string.isRequired,
+  store: PropTypes.object.isRequired,
 };
