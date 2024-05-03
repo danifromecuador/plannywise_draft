@@ -1,6 +1,3 @@
-import { getTime } from "../alarm/alarm_logic.js";
-import { workedHours } from "../tasks/tasks_logic";
-
 export const previousDays = () => {
   return {
     mon: 6,
@@ -23,8 +20,6 @@ export const previousWeeks = () => {
 };
 
 export const previousMonths = () => {
-  // console.log(getTime());
-
   return {
     jan: 1,
     feb: 2,

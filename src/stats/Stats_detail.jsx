@@ -1,11 +1,9 @@
 // src/
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import "./Stats_detail.css";
-import { TaskStore } from "../store/store";
 
 export const Stats_detail = ({ h2, store }) => {
-  const { workedHours } = TaskStore();
   let current = store.current();
   const [spreadBtn, setSpreadBtn] = useState("");
   const [shrinkBtn, setShrinkBtn] = useState("hide");
@@ -22,10 +20,6 @@ export const Stats_detail = ({ h2, store }) => {
     setShrinkBtn("hide");
     setPrevious("hide");
   };
-
-  useEffect(() => {
-    current = store.current;
-  }, [workedHours]);
 
   return (
     <div className="Stats_detail">
@@ -44,9 +38,7 @@ export const Stats_detail = ({ h2, store }) => {
       </div>
       <ul className={previous}>
         {Object.entries(store.previous).map(([key, value]) => (
-          <li key={key}>
-            {`${key}: ${value}`}
-          </li>
+          <li key={key}>{`${key}: ${value}`}</li>
         ))}
       </ul>
     </div>
