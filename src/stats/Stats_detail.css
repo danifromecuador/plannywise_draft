@@ -1,0 +1,27 @@
+.Stats_detail {
+  width: 100%;
+  height: fit-content;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.Stats_detail .header {
+  display: flex;
+  justify-content: space-between;
+
+  /* align-items: center; */
+}
+
+.Stats_detail .header .counter {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.Stats_detail .spreadBtn,
+.Stats_detail .shrinkBtn {
+  width: 20px;
+  height: 20px;
+  background-color: gray;
+  border: 1px solid gray;
+}

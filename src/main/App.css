@@ -1,26 +1,27 @@
 /* src/main/App.css */
-
 .app {
   width: 95vw;
   height: 95vh;
 }
 
 .app,
-.todos-tasks,
-.todos {
+.left-right,
+.left,
+.right {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
 }
 
 @media (width > 1200px) {
-  .todos-tasks {
+  .left-right {
     width: 100%;
     flex-direction: row;
     column-gap: 20px;
   }
 
-  .todos {
+  .left,
+  .right {
     width: 100%;
   }
 }
